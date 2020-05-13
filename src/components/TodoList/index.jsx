@@ -7,7 +7,7 @@ export default class TodoItem extends Component {
         todos: PropTypes.arrayOf(PropTypes.shape({
             id: PropTypes.number.isRequired,
             title: PropTypes.string.isRequired,
-            isCompleted: PropTypes.bool.isRequired
+            completed: PropTypes.bool.isRequired
         })).isRequired,
         onCompletedChange:PropTypes.func
     }

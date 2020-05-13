@@ -3,7 +3,8 @@ import TodoHeader from '../TodoHeader'
 import TodoInput from '../TodoInput'
 import TodoList from '../TodoList'
 import Like from '../Like'
-
+// import {getTodos} from '../../services'
+// import axios from 'axios'
 export default class app extends Component {
     state={
         isLike:true,
@@ -11,20 +12,40 @@ export default class app extends Component {
             {
             id:1,
             title:'吃饭',
-            isCompleted:true
+            completed:true
             },
             {
             id:2,
             title:'睡觉',
-            isCompleted:false
+            completed:false
             }
         ]
     }
+
+    componentDidMount() {
+        console.log('111111111')
+        // axios.get('https://jsonplaceholder.typicode.com/todos').then(res=>{
+        //     console.log(res)
+        // })
+        // getTodos()
+        //     .then(res=>{
+        //         console.log("res",res)
+        //         if(res.status===200){
+        //             this.setState({
+        //                 todos:res.data
+        //             })
+        //         }
+        //     })
+        //     .catch(err=>{
+        //         console.log("err",err)
+        //     })
+    }
+
     addClick=(todo)=>{
         const todoItem={
             id:Math.random(),
             title:todo,
-            isCompleted:false
+            completed:false
         }
         const todos=[...this.state.todos,todoItem]
         this.setState({
@@ -37,7 +58,7 @@ export default class app extends Component {
         const todos = this.state.todos
         todos.map(todo=>{
            if(todo.id===id){
-               todo.isCompleted=!todo.isCompleted
+               todo.completed=!todo.completed
            }
        })
        this.setState({
@@ -51,7 +72,7 @@ export default class app extends Component {
             isLike:!this.state.isLike
         })
         console.log(this.state.isLike);
-        
+
     }
     render() {
         return (
@@ -63,7 +84,7 @@ export default class app extends Component {
                     this.state.isLike
                 }
                 toggleClick = {
-                        this.toggleClick }/ >
+                        this.toggleClick } />
             </div>
         )
     }
