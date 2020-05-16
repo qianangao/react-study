@@ -1,1 +1,1 @@
-export {default as BlogList} from './BlogList/BlogList.js'
+export {default as Button} from './Button'
