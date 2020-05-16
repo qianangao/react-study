@@ -1,10 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {BrowserRouter as Router} from 'react-router-dom'
+import {ConfigProvider} from 'antd'
+// import zhCN from 'antd/es/locale/zh_CN'
 import App from './app'
 
 ReactDOM.render(
-    <Router>
-    <App/>
-    </Router>
+    // locale={zhCN}
+    <ConfigProvider prefixCls="gq" >
+        <App />
+    </ConfigProvider>
+    
 ,document.getElementById('root'))
